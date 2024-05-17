@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/contants.dart';
-import 'package:sizer/sizer.dart';
 
 class FeeButton extends StatelessWidget {
   const FeeButton(
@@ -17,18 +16,19 @@ class FeeButton extends StatelessWidget {
     return InkWell(
       onTap: onPress,
       child: Container(
-        width: 100.w,
-        height: SizerUtil.deviceType == DeviceType.tablet ? 8.h : 7.h,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [kSecondaryColor, kPrimaryColor],
-            begin: const FractionalOffset(0.0, 0.0),
-            end: const FractionalOffset(0.5, 0.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp,
-          ),
-          borderRadius: kBottomBorderRadius,
-        ),
+        width: ProjectSize().projecContainerWidth,
+        height: ProjectSize().feeHeight,
+        decoration: ProjectDecoration().activiytBoxDecoration(),
+        // decoration: BoxDecoration(
+        //   gradient: LinearGradient(
+        //     colors: [kSecondaryColor, kPrimaryColor],
+        //     begin: const FractionalOffset(0.0, 0.0),
+        //     end: const FractionalOffset(0.5, 0.0),
+        //     stops: [0.0, 1.0],
+        //     tileMode: TileMode.clamp,
+        //   ),
+        //   borderRadius: kBottomBorderRadius,
+        // ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -36,7 +36,7 @@ class FeeButton extends StatelessWidget {
             Icon(
               iconData,
               color: kOtherColor,
-              size: 26.sp,
+              size: ProjectSize().defaultContainer,
             ),
           ],
         ),

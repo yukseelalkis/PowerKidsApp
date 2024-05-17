@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/contants.dart';
+import 'package:flutter_application_1/language/laguage.dart';
 import 'package:flutter_application_1/screens/fee_screen/widget/fee_widget.dart';
 import 'data/fee_data.dart';
 
@@ -11,19 +12,16 @@ class FeeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Ödeme')),
+        title: Center(child: Text(LanguageItems.feeButton)),
       ),
       body: Column(
         children: [
           Expanded(
             child: Container(
-              decoration: BoxDecoration(
-                borderRadius: kTopBorderRadius,
-                color: kOtherColor,
-              ),
+              decoration: ProjectDecoration().defaultBoxDecoration(),
               child: ListView.builder(
                   physics: BouncingScrollPhysics(),
-                  padding: EdgeInsets.all(kDefaultPadding),
+                  padding: ProjectEdgeInsets().edgeInsetsAll,
                   itemCount: fee.length,
                   itemBuilder: (context, int index) {
                     return Container(
@@ -31,23 +29,13 @@ class FeeScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Container(
-                            padding: EdgeInsets.all(kDefaultPadding),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(kDefaultPadding),
-                              ),
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: kTextLightColor,
-                                  blurRadius: 2.0,
-                                ),
-                              ],
-                            ),
+                            padding: ProjectEdgeInsets().edgeInsetsAll,
+                            decoration: ProjectDecoration()
+                                .borderRadiusVertical(kTextLightColor),
                             child: Column(
                               children: [
                                 FeeDetailRow(
-                                  title: 'Makbuz No',
+                                  title: LanguageItems.receiptNoTitle,
                                   statusValue: fee[index].receiptNo,
                                 ),
                                 SizedBox(
@@ -57,17 +45,17 @@ class FeeScreen extends StatelessWidget {
                                   ),
                                 ),
                                 FeeDetailRow(
-                                  title: 'Ay',
+                                  title: LanguageItems.monthTitle,
                                   statusValue: fee[index].month,
                                 ),
                                 sizedBox,
                                 FeeDetailRow(
-                                  title: 'Ödeme Tarihi',
+                                  title: LanguageItems.dateTitle,
                                   statusValue: fee[index].date,
                                 ),
                                 sizedBox,
                                 FeeDetailRow(
-                                  title: 'Durum',
+                                  title: LanguageItems.paymentStatusTitle,
                                   statusValue: fee[index].paymentStatus,
                                 ),
                                 sizedBox,
@@ -78,7 +66,7 @@ class FeeScreen extends StatelessWidget {
                                   ),
                                 ),
                                 FeeDetailRow(
-                                  title: 'Toplam Tutar',
+                                  title: LanguageItems.totalAmountTitle,
                                   statusValue: fee[index].totalAmount,
                                 ),
                               ],

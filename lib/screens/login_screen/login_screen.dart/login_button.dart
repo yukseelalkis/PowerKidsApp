@@ -19,7 +19,7 @@ class LoginButton extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: projectButtonTop,
+                  padding: ProjectEdgeInsets().projectButtonTop,
                   child: CustomRow(
                     title: LanguageItems.teacherTitle,
                     icon: Icons.account_circle_outlined,
@@ -28,7 +28,7 @@ class LoginButton extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: projectButtonTop,
+                  padding: ProjectEdgeInsets().projectButtonTop,
                   child: CustomRow(
                     title: LanguageItems.parentTitle, // İkinci satırın başlığı
                     icon: Icons.account_circle_outlined,
@@ -37,7 +37,7 @@ class LoginButton extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: projectButtonTop,
+                  padding: ProjectEdgeInsets().projectButtonTop,
                   child: CustomRow(
                     title: LanguageItems.adminTitle, // Üçüncü satırın başlığı
                     icon: Icons.manage_accounts_outlined,

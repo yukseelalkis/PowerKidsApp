@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/contants.dart';
+import 'package:flutter_application_1/language/laguage.dart';
 import 'package:flutter_application_1/screens/activity_screen/activity_widget.dart';
 import 'package:flutter_application_1/screens/activity_screen/data/activity_data.dart';
 
@@ -11,36 +12,28 @@ class ActivtyScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          child: Text("Etkinlik"),
+          child: Text(LanguageItems.activityTitlte),
         ),
       ),
       body: Column(
         children: [
           Expanded(
               child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: kTopBorderRadius, color: kOtherColor),
+                  decoration: ProjectDecoration().defaultBoxDecoration(),
                   child: ListView.builder(
-                      padding: EdgeInsets.all(kDefaultPadding),
+                      padding: ProjectEdgeInsets().edgeInsetsAll,
                       physics: BouncingScrollPhysics(),
                       itemCount: activityData.length,
                       itemBuilder: (context, int index) {
                         return Container(
-                          margin: EdgeInsets.only(bottom: kDefaultPadding),
+                          margin: ProjectEdgeInsets()
+                              .projectActivityContainerBottom,
                           child: Column(
                             children: [
                               Container(
-                                padding: EdgeInsets.all(kDefaultPadding),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.vertical(
-                                        top: Radius.circular(kDefaultPadding)),
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.orange,
-                                        blurRadius: 2.0,
-                                      )
-                                    ]),
+                                padding: ProjectEdgeInsets().edgeInsetsAll,
+                                decoration: ProjectDecoration()
+                                    .borderRadiusVertical(kPrimaryColor),
                                 child: Column(
                                   children: [
                                     ActivtyDetailRow(
@@ -53,29 +46,29 @@ class ActivtyScreen extends StatelessWidget {
                                       ),
                                     ),
                                     ActivtyDetailRow(
-                                        title: "Ödev:",
+                                        title: LanguageItems.homeworkTitle,
                                         statusValue:
                                             activityData[index].homeWork),
                                     sizedBox,
                                     ActivtyDetailRow(
-                                      title: "Ders:",
+                                      title: LanguageItems.lessonTitle,
                                       statusValue: activityData[index].lesson,
                                     ),
                                     sizedBox,
                                     ActivtyDetailRow(
-                                      title: "Başlangıç tarihi:",
+                                      title: LanguageItems.startTimeTitle,
                                       statusValue:
                                           activityData[index].startingDate,
                                     ),
                                     sizedBox,
                                     ActivtyDetailRow(
-                                      title: "Bitis tarihi:",
+                                      title: LanguageItems.finishTimeTitle,
                                       statusValue:
                                           activityData[index].finishDate,
                                     ),
                                     sizedBox,
                                     ActivtyDetailRow(
-                                      title: "Ödev değerlendirme:",
+                                      title: LanguageItems.performanceTitle,
                                       statusValue:
                                           activityData[index].performance,
                                     )

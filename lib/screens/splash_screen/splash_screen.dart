@@ -52,7 +52,6 @@ import 'package:flutter_application_1/contants.dart';
 import 'package:flutter_application_1/language/laguage.dart';
 import 'package:flutter_application_1/routes.dart';
 import 'package:flutter_application_1/screens/login_screen/login_screen.dart/login_button.dart';
-import 'package:sizer/sizer.dart';
 
 class SplashScreen extends StatefulWidget {
   static String routeName = 'SplashScreen';

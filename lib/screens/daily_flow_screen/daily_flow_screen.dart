@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_application_1/components/custom_button.dart';
+import 'package:flutter_application_1/contants.dart';
+import 'package:flutter_application_1/language/laguage.dart';
 
 class DailyFlowScreen extends StatefulWidget {
   const DailyFlowScreen({super.key});
@@ -13,64 +15,37 @@ class _DailyFlowScreen extends State<DailyFlowScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Gunluk Akis")),
+        title: Center(child: Text(LanguageItems.daliyFlowTitle)),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.zero,
-                backgroundColor:
-                    Colors.red, // Buton rengini kırmızı olarak ayarlar
-                minimumSize: Size(100, 40), // Butonun minimum boyutunu ayarlar
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.add_a_photo_outlined),
-                  SizedBox(
-                      width: 8), // İkon ve etiket arasında bir boşluk ekler
-                  Container(
-                    width: 100,
-                    child: Text(
-                      "Fotoğraf Ekle",
-                      textAlign: TextAlign.center, // Metni merkeze hizalar
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            customDailyButton(),
             Padding(
-              padding: const EdgeInsets.only(top: 40),
+              padding: ProjectEdgeInsets().projectContainerTop,
               child: Container(
-                width: 300,
-                height: 200,
+                width: ProjectSize().addPhotoContainerWidth,
+                height: ProjectSize().addPhotoContainerHeight,
                 child: Center(
-                  child: Text("Lütfen Fotoğraf yükleyiniz"),
+                  child: Text(LanguageItems.addPhotoPls),
                 ),
               ),
             ),
             CustomTextField(
-              backgroundColor: Colors.orange,
+              backgroundColor: kPrimaryColor,
               minLines: 2,
-              title: "Baslik",
+              title: LanguageItems.dailyflowTextFielTitle,
             ),
             CustomTextField(
-              backgroundColor: Colors.blue,
+              backgroundColor: kButtonBlueColor,
               minLines: 4,
-              title: "Aciklama",
+              title: LanguageItems.explanationTxtFielTitle,
             ),
             Container(
-              height: 15.h, // Örnek bir yükseklik
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/main_button.png"),
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
+                height: ProjectSize()
+                    .projectImageContainerHalfHeight, // Örnek bir yükseklik
+                decoration:
+                    ProjectDecoration().boxDecorationImage("main_button.png")),
           ],
         ),
       ),
@@ -92,7 +67,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8.0),
+      padding: ProjectEdgeInsets().edgeInsetsHalfAll,
       child: TextField(
         enabled: false,
         minLines: minLines,
@@ -101,14 +76,14 @@ class CustomTextField extends StatelessWidget {
           filled: true,
           fillColor: backgroundColor, // Arka plan rengi
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
+            borderRadius: ProjectBorderRadius().borderRadiusDaily(),
             borderSide: BorderSide.none, // Kenar çizgisi olmadığından emin ol
           ),
           labelText: title,
           labelStyle: Theme.of(context)
               .textTheme
               .bodyLarge
-              ?.copyWith(color: Colors.black), // Yazı rengi
+              ?.copyWith(color: kTextBlackColor), // Yazı rengi
         ),
       ),
     );

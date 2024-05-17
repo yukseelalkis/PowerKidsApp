@@ -96,3 +96,35 @@ class DefaultButton extends StatelessWidget {
     );
   }
 }
+
+class customDailyButton extends StatelessWidget {
+  const customDailyButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {},
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.zero,
+        backgroundColor: Colors.red, // Buton rengini kırmızı olarak ayarlar
+        minimumSize: Size(100, 40), // Butonun minimum boyutunu ayarlar
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.add_a_photo_outlined),
+          SizedBox(width: 8), // İkon ve etiket arasında bir boşluk ekler
+          Container(
+            width: 100,
+            child: Text(
+              "Fotoğraf Ekle",
+              textAlign: TextAlign.center, // Metni merkeze hizalar
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

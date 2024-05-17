@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/contants.dart';
 import 'package:flutter_application_1/language/laguage.dart';
+import 'package:flutter_application_1/screens/menu_screen/menu_screen_widget.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({Key? key}) : super(key: key);
@@ -15,24 +17,24 @@ class _MenuScreenState extends State<MenuScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Yemek Menüsü')),
+        title: Center(child: Text(LanguageItems.menuTitle)),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 20),
+              padding: ProjectEdgeInsets().projectButtonTop,
               child: Container(
-                height: 75,
-                color: Colors.orange,
+                height: ProjectSize().menuButton,
+                color: kPrimaryColor,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    buildDay('Pazartesi'),
-                    buildDay('Salı'),
-                    buildDay('Çarşamba'),
-                    buildDay('Perşembe'),
-                    buildDay('Cuma'),
+                    buildDay(LanguageItems.mondayTitle),
+                    buildDay(LanguageItems.tuesdasyTitle),
+                    buildDay(LanguageItems.wednesdayTitle),
+                    buildDay(LanguageItems.thursdayTitle),
+                    buildDay(LanguageItems.fridayTitle),
                   ],
                 ),
               ),
@@ -42,28 +44,28 @@ class _MenuScreenState extends State<MenuScreen> {
                 children: [
                   ListTile(
                     leading: Text(
-                      "Sabah Kahvaltisi",
+                      LanguageItems.breakfastTitle,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ),
                   CustomListTile(
                     title: "Recel",
-                    color: Colors.blue,
+                    color: kButtonBlueColor,
                     clock: LanguageItems.breakfastTime,
                   ),
                   CustomListTile(
                     title: "Bal",
-                    color: Colors.orange,
+                    color: kPrimaryColor,
                     clock: LanguageItems.breakfastTime,
                   ),
                   CustomListTile(
                     title: "Kizarmis Ekmek",
-                    color: Colors.yellow,
+                    color: kButtonYellowColor,
                     clock: LanguageItems.breakfastTime,
                   ),
                   CustomListTile(
                     title: "Sut",
-                    color: Colors.green,
+                    color: kButtonGreenColor,
                     clock: LanguageItems.breakfastTime,
                   )
                 ],
@@ -71,30 +73,30 @@ class _MenuScreenState extends State<MenuScreen> {
             ),
             Divider(
               thickness: 3.0,
-              color: Colors.black,
+              color: kTextBlackColor,
             ),
             Container(
               child: Column(
                 children: [
                   ListTile(
                     leading: Text(
-                      "Ogle Yemegi",
+                      LanguageItems.lunchTitle,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ),
                   CustomListTile(
                     title: "Etli patates",
-                    color: Colors.blue,
+                    color: kButtonBlueColor,
                     clock: LanguageItems.lunchTime,
                   ),
                   CustomListTile(
                     title: "Pilav",
-                    color: Colors.orange,
+                    color: kPrimaryColor,
                     clock: LanguageItems.lunchTime,
                   ),
                   CustomListTile(
                     title: "Ayran",
-                    color: Colors.green,
+                    color: kButtonGreenColor,
                     clock: LanguageItems.lunchTime,
                   )
                 ],
@@ -123,35 +125,6 @@ class _MenuScreenState extends State<MenuScreen> {
           child: Text(day),
         ),
       ),
-    );
-  }
-}
-
-//
-class CustomListTile extends StatelessWidget {
-  final String title;
-  final Color color;
-  final String clock;
-  const CustomListTile(
-      {super.key,
-      required this.title,
-      required this.color,
-      required this.clock});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(
-        Icons.food_bank_outlined,
-        color: color,
-        size: 50,
-      ),
-      title: Text(
-        title,
-        style: Theme.of(context).textTheme.headlineSmall,
-      ),
-      // sabit degeleri olcak
-      subtitle: Text(clock),
     );
   }
 }

@@ -25,19 +25,19 @@ class CustomRow extends StatelessWidget {
             ProjectRouteScreen().navigateToDailyFlowScreen(context, page);
           },
           child: Container(
-            width: projectButtonRowWidth,
-            height: projectButtonRowHeight,
+            width: ProjectSize().projectLoginButtonRowWidth,
+            height: ProjectSize().projectButtonRowHeight,
             child: Center(child: Text(title)),
           ),
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
-              borderRadius: projectRadius,
+              borderRadius: ProjectBorderRadius().defaultBorderRadius(),
             ),
             backgroundColor: color,
             foregroundColor: kTextWhiteColor,
           ),
         ),
-        SizedBox(width: sizedBoxWidth),
+        SizedBox(width: ProjectSize().loginSizedBoxWidth),
         Transform.translate(
           offset: Offset(-250, 0),
           child: ElevatedButton.icon(
@@ -47,8 +47,10 @@ class CustomRow extends StatelessWidget {
             ),
             label: Text(''),
             style: ElevatedButton.styleFrom(
-              elevation: elevationSize,
-              shape: RoundedRectangleBorder(borderRadius: projectRadius),
+              elevation: ProjectSize().elevationSize,
+              shape: RoundedRectangleBorder(
+                borderRadius: ProjectBorderRadius().defaultBorderRadius(),
+              ),
               backgroundColor: color,
               foregroundColor: kTextWhiteColor,
             ),
@@ -65,11 +67,12 @@ class pngContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: projectContainerTop,
+      padding: ProjectEdgeInsets().projectContainerTop,
       child: Container(
-          width: projectImageContainerWidth,
-          height: projectImageContainerHeight, // Örnek bir yükseklik
-          decoration: ProjectDecoration().boxDecoration("$name")),
+          width: ProjectSize().projecContainerWidth,
+          height:
+              ProjectSize().projectImageContainerHeight, // Örnek bir yükseklik
+          decoration: ProjectDecoration().boxDecorationImage("$name")),
     );
   }
 }

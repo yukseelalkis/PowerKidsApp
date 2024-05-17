@@ -78,9 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Container(
-          margin: projectButtonHalfTop,
-          height: floatinContainerSize,
-          width: floatinContainerSize,
+          margin: ProjectEdgeInsets().projectButtonHalfTop,
+          height: ProjectSize().floatinContainerSize,
+          width: ProjectSize().floatinContainerSize,
           child: FloatingActionButton(
             backgroundColor: kTextWhiteColor,
             elevation: 10,
@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 3,
                 color: kTextWhiteColor,
               ),
-              borderRadius: projectMaxRadius,
+              borderRadius: ProjectBorderRadius().projectMaxRadius(),
             ),
             child: const Icon(
               Icons.add,
@@ -164,7 +164,7 @@ class Page extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: edgeInsetsHomeOnly,
+            padding: ProjectEdgeInsets().edgeInsetsHomeOnly,
             child: Center(
               child: Row(
                 children: [
@@ -194,7 +194,7 @@ class Page extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: edgeInsetsHomeOnly,
+            padding: ProjectEdgeInsets().edgeInsetsHomeOnly,
             child: Center(
               child: Row(
                 children: [
@@ -222,7 +222,7 @@ class Page extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: edgeInsetsHomeLast,
+            padding: ProjectEdgeInsets().edgeInsetsHomeLast,
             child: Center(
               child: Row(
                 children: [

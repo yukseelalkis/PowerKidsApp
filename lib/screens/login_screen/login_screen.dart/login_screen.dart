@@ -39,30 +39,31 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               Container(
                   //width: 100.w,
-                  width: projectImageContainerWidth,
-                  height: projectImageContainerHeight,
-                  decoration: ProjectDecoration().boxDecoration("main.png")),
+                  width: ProjectSize().projecContainerWidth,
+                  height: ProjectSize().projectImageContainerHeight,
+                  decoration:
+                      ProjectDecoration().boxDecorationImage("main.png")),
               Container(
                 color: kTextWhiteColor,
-                padding: edgeInsetsOnly,
+                padding: ProjectEdgeInsets().edgeInsetsLogin,
                 child: Form(
                   key: _formKey,
                   child: Column(
                     children: [
                       SizedBox(
-                        height: sizedBoxHeigth,
+                        height: ProjectSize().login2xSizedBoxHeigth,
                       ),
                       buildEmailField(),
                       SizedBox(
-                        height: sizedBoxHeigth,
+                        height: ProjectSize().login2xSizedBoxHeigth,
                       ),
                       buildPasswordField(),
                       SizedBox(
-                        height: sizedBoxHeigth,
+                        height: ProjectSize().login2xSizedBoxHeigth,
                       ),
                       TextButton(
                         child: Padding(
-                          padding: projectButtonLeft,
+                          padding: ProjectEdgeInsets().projectLoginButtonLeft,
                           child: Row(
                             children: [
                               Icon(
@@ -87,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         iconData: Icons.arrow_forward_outlined,
                       ),
                       SizedBox(
-                        height: sizedBoxHeigth,
+                        height: ProjectSize().login2xSizedBoxHeigth,
                       ),
                       Align(
                         alignment: Alignment.center,
@@ -130,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
       validator: (value) {
         RegExp regExp = new RegExp(emailPattern);
         if (value == null || value.isEmpty) {
-          return LanguageItems.Mail;
+          return LanguageItems.MailPls;
         } else if (!regExp.hasMatch(value)) {
           return LanguageItems.errorMail;
         }

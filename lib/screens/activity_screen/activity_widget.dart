@@ -17,18 +17,9 @@ class ActiviyButton extends StatelessWidget {
     return InkWell(
       onTap: onPress,
       child: Container(
-        width: 100.w,
+        width: ProjectSize().projecContainerWidth,
         height: SizerUtil.deviceType == DeviceType.tablet ? 8.h : 7.h,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [kSecondaryColor, kPrimaryColor],
-            begin: const FractionalOffset(0.0, 0.0),
-            end: const FractionalOffset(0.5, 0.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp,
-          ),
-          borderRadius: kBottomBorderRadius,
-        ),
+        decoration: ProjectDecoration().activiytBoxDecoration(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -36,7 +27,7 @@ class ActiviyButton extends StatelessWidget {
             Icon(
               iconData,
               color: kOtherColor,
-              size: 26.sp,
+              size: ProjectSize().defaultContainer,
             ),
           ],
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/contants.dart';
+import 'package:flutter_application_1/language/laguage.dart';
 import 'package:flutter_application_1/screens/data_sheet_screen/data/data_sheet.dart';
 import 'package:sizer/sizer.dart';
 
@@ -11,31 +12,22 @@ class DataSheetScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ders Programı'),
+        title: Text(LanguageItems.syllabusTitle),
       ),
       body: Container(
-        width: 100.w,
-        decoration: BoxDecoration(
-          color: kOtherColor,
-          borderRadius: kTopBorderRadius,
-        ),
+        width: ProjectSize().projecContainerWidth,
+        decoration: ProjectDecoration().defaultBoxDecoration(),
         child: ListView.builder(
           itemCount: dateSheet.length,
           itemBuilder: (context, index) {
             return Container(
-              margin: EdgeInsets.only(
-                  left: kDefaultPadding / 2, right: kDefaultPadding / 2),
-              padding: EdgeInsets.all(kDefaultPadding / 2),
+              margin: ProjectEdgeInsets().marginLeftRight,
+              padding: ProjectEdgeInsets().edgeInsetsHalfAll,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 3.h,
-                    child: Divider(
-                      thickness: 1.0,
-                    ),
-                  ),
+                  customSizedBox(),
                   //first need a row, then 3 columns
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,17 +85,27 @@ class DataSheetScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 3.h,
-                    child: Divider(
-                      thickness: 1.0,
-                    ),
-                  ),
+                  customSizedBox(),
                 ],
               ),
             );
           },
         ),
+      ),
+    );
+  }
+}
+
+class customSizedBox extends StatelessWidget {
+  const customSizedBox({
+    super.key,
+  });
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 3.h,
+      child: Divider(
+        thickness: 1.0,
       ),
     );
   }

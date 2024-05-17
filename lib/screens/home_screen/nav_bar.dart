@@ -14,9 +14,9 @@ class NavBar extends StatelessWidget {
       child: BottomAppBar(
         color: kTextWhiteColor,
         child: ClipRRect(
-          borderRadius: projectRadius,
+          borderRadius: ProjectBorderRadius().defaultBorderRadius(),
           child: Container(
-            height: projectButtonRowHeight,
+            height: ProjectSize().projectButtonRowHeight,
             child: Row(
               children: [
                 navItem(Icons.home_outlined, PageIndex == 0,
@@ -47,7 +47,7 @@ class NavBar extends StatelessWidget {
 class ProjectContainerDecerotion extends BoxDecoration {
   ProjectContainerDecerotion()
       : super(
-            borderRadius: projectRadius,
+            borderRadius: ProjectBorderRadius().defaultBorderRadius(),
             gradient: const LinearGradient(
                 colors: [kButtonBlueColor, kTextWhiteColor]),
             boxShadow: const [
