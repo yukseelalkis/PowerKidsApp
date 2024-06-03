@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/contants.dart';
 import 'package:flutter_application_1/language/laguage.dart';
+import 'package:flutter_application_1/screens/card_screen/card_screen.dart';
 import 'package:flutter_application_1/screens/fee_screen/widget/fee_widget.dart';
 import 'data/fee_data.dart';
 
@@ -77,7 +78,12 @@ class FeeScreen extends StatelessWidget {
                               iconData: fee[index].btnStatus == 'Paid'
                                   ? Icons.download_outlined
                                   : Icons.arrow_forward_outlined,
-                              onPress: () {})
+                              onPress: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => CardScreen()));
+                              })
                         ],
                       ),
                     );

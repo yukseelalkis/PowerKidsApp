@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/contants.dart';
 
 class NavBar extends StatelessWidget {
-  final int PageIndex;
+  final int pageIndex;
   final Function(int) onTap;
 
-  NavBar({super.key, required this.PageIndex, required this.onTap});
+  const NavBar({super.key, required this.pageIndex, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +19,12 @@ class NavBar extends StatelessWidget {
             height: ProjectSize().projectButtonRowHeight,
             child: Row(
               children: [
-                navItem(Icons.home_outlined, PageIndex == 0,
+                navItem(Icons.home_outlined, pageIndex == 0,
                     onTap: () => onTap(0)),
-                navItem(Icons.checklist, PageIndex == 1, onTap: () => onTap(1)),
-                navItem(Icons.message_outlined, PageIndex == 2,
+                navItem(Icons.checklist, pageIndex == 1, onTap: () => onTap(1)),
+                navItem(Icons.message_outlined, pageIndex == 2,
                     onTap: () => onTap(2)),
-                navItem(Icons.account_circle_outlined, PageIndex == 3,
+                navItem(Icons.account_circle_outlined, pageIndex == 3,
                     onTap: () => onTap(3))
               ],
             ),
@@ -36,11 +36,12 @@ class NavBar extends StatelessWidget {
 
   Widget navItem(IconData icon, bool selected, {Function()? onTap}) {
     return Expanded(
-        child: InkWell(
-      onTap: onTap,
-      child: Icon(icon,
-          color: selected ? kSecondaryColor : kPrimaryColor.withOpacity(0.4)),
-    ));
+      child: InkWell(
+        onTap: onTap,
+        child: Icon(icon,
+            color: selected ? kSecondaryColor : kPrimaryColor.withOpacity(0.4)),
+      ),
+    );
   }
 }
 

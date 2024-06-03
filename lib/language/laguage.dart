@@ -58,14 +58,3 @@ class LanguageItems {
   static String motherName = 'Anne Adı';
   static String parentNo = 'Veli Telefon No';
 }
-/*
-
-final String receiptNo;
-  final String month;
-  final String date;
-  final String paymentStatus;
-  final String totalAmount;
-  final String btnStatus;
-
-
-*/

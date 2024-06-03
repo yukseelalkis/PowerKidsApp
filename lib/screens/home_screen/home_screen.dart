@@ -9,7 +9,9 @@ import 'package:flutter_application_1/screens/fee_screen/fee_screen.dart';
 import 'package:flutter_application_1/screens/home_screen/nav_model.dart';
 import 'package:flutter_application_1/screens/home_screen/nav_bar.dart';
 import 'package:flutter_application_1/components/custom_button.dart';
+import 'package:flutter_application_1/screens/inspection_screen/inspection.dart';
 import 'package:flutter_application_1/screens/menu_screen/menu_screen.dart';
+import 'package:flutter_application_1/screens/message_screen/message.dart';
 import 'package:flutter_application_1/screens/my_profil/my_profile_screen/my_profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -22,30 +24,30 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final homeNavKey = GlobalKey<NavigatorState>();
-  final attendanceCheckNavKey = GlobalKey<NavigatorState>();
+  final inspectionNavKey = GlobalKey<NavigatorState>();
   final messageNavKey = GlobalKey<NavigatorState>();
   final userNavKey = GlobalKey<NavigatorState>();
-  int SelectedTab = 0;
-  List<NavModel> _items = [];
+  int selectedTab = 0;
+  late List<NavModel> _items;
 
   @override
   void initState() {
     super.initState();
     _items = [
       NavModel(
-        page: const TabPage(tab: 1),
+        page: const Page(tab: 0),
         navKey: homeNavKey,
       ),
       NavModel(
-        page: const TabPage(tab: 2),
-        navKey: attendanceCheckNavKey,
+        page: const InspectionScreen(),
+        navKey: inspectionNavKey,
       ),
       NavModel(
-        page: const TabPage(tab: 3),
+        page: const MessageScreen(),
         navKey: messageNavKey,
       ),
       NavModel(
-        page: const TabPage(tab: 4),
+        page: const MyProfileScreen(),
         navKey: userNavKey,
       ),
     ];
@@ -55,8 +57,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () {
-        if (_items[SelectedTab].navKey.currentState?.canPop() ?? false) {
-          _items[SelectedTab].navKey.currentState?.pop();
+        if (_items[selectedTab].navKey.currentState?.canPop() ?? false) {
+          _items[selectedTab].navKey.currentState?.pop();
           return Future.value(false);
         } else {
           return Future.value(true);
@@ -64,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
       },
       child: Scaffold(
         body: IndexedStack(
-          index: SelectedTab,
+          index: selectedTab,
           children: _items
               .map((page) => Navigator(
                     key: page.navKey,
@@ -86,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
             elevation: 10,
             onPressed: () {
               ProjectRouteScreen()
-                  .navigateToDailyFlowScreen(context, MyProfileScreen());
+                  .navigateToDailyFlowScreen(context, Placeholder());
             },
             shape: RoundedRectangleBorder(
               side: const BorderSide(
@@ -102,16 +104,16 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         bottomNavigationBar: NavBar(
-          PageIndex: SelectedTab,
+          pageIndex: selectedTab,
           onTap: (index) {
-            if (index == SelectedTab) {
+            if (index == selectedTab) {
               _items[index]
                   .navKey
                   .currentState
                   ?.popUntil((route) => route.isFirst);
             } else {
               setState(() {
-                SelectedTab = index;
+                selectedTab = index;
               });
             }
           },
@@ -121,10 +123,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class TabPage extends StatelessWidget {
-  final int tab;
-
-  const TabPage({Key? key, required this.tab}) : super(key: key);
+class HomeTabPage extends StatelessWidget {
+  const HomeTabPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -133,12 +133,12 @@ class TabPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Tab $tab'),
+            Text('Home Screen'),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => Page(tab: tab),
+                    builder: (context) => const Page(tab: 0),
                   ),
                 );
               },

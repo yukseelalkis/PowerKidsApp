@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/components/custom_button.dart';
 import 'package:flutter_application_1/contants.dart';
+import 'package:flutter_application_1/language/laguage.dart';
 import 'package:flutter_application_1/routes.dart';
 
 class CustomRow extends StatelessWidget {
@@ -76,3 +78,4 @@ class pngContainer extends StatelessWidget {
     );
   }
 }
+

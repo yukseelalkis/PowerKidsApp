@@ -8,7 +8,6 @@ Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => SplashScreen(),
   LoginScreen.routeName: (context) => LoginScreen(),
   HomeScreen.routeName: (context) => HomeScreen(),
-  LoginButton.routeName: (context) => LoginButton(),
 };
 
 class ProjectRouteScreen {

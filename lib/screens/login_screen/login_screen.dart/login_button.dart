@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/contants.dart';
 import 'package:flutter_application_1/language/laguage.dart';
+import 'package:flutter_application_1/screens/admin_screen/admin_screen.dart';
 import 'package:flutter_application_1/screens/login_screen/login_screen.dart/login_screen.dart';
 import 'package:flutter_application_1/screens/login_screen/widget/login_widget.dart';
 
@@ -30,19 +31,19 @@ class LoginButton extends StatelessWidget {
                 Padding(
                   padding: ProjectEdgeInsets().projectButtonTop,
                   child: CustomRow(
-                    title: LanguageItems.parentTitle, // İkinci satırın başlığı
+                    title: LanguageItems.parentTitle, 
                     icon: Icons.account_circle_outlined,
-                    color: kButtonBlueColor, // İkinci satırın ikonu
+                    color: kButtonBlueColor, 
                     page: LoginScreen(),
                   ),
                 ),
                 Padding(
                   padding: ProjectEdgeInsets().projectButtonTop,
                   child: CustomRow(
-                    title: LanguageItems.adminTitle, // Üçüncü satırın başlığı
+                    title: LanguageItems.adminTitle, 
                     icon: Icons.manage_accounts_outlined,
-                    color: kButtonGreenColor, // Üçüncü satırın ikonu
-                    page: Container(),
+                    color: kButtonGreenColor, 
+                    page: AdminScreen(),
                   ),
                 ),
               ],

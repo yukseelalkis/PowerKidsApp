@@ -34,84 +34,86 @@ class MyProfileScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
-        color: kOtherColor,
-        child: Column(
-          children: [
-            Container(
-              width: ProjectSize().projecContainerWidth,
-              height: ProjectSize().myProfileHeigt,
-              decoration: ProjectDecoration().profileBoxDecoration(),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+      body: SingleChildScrollView(
+        child: Container(
+          color: kOtherColor,
+          child: Column(
+            children: [
+              Container(
+                width: ProjectSize().projecContainerWidth,
+                height: ProjectSize().myProfileHeigt,
+                decoration: ProjectDecoration().profileBoxDecoration(),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: ProjectSize().profileRadius,
+                      backgroundColor: kTextWhiteColor,
+                      backgroundImage: AssetImage('assets/images/indir.jpeg'),
+                    ),
+                    kWidthSizedBox,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // veritabanindan gelecek
+                        Text(
+                          'User',
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                        Text('Anaokul',
+                            style: Theme.of(context).textTheme.titleSmall),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              sizedBox,
+              //VeriTabaninindan gelecek
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  CircleAvatar(
-                    radius: ProjectSize().profileRadius,
-                    backgroundColor: kTextWhiteColor,
-                    backgroundImage: AssetImage('assets/images/indir.jpeg'),
-                  ),
-                  kWidthSizedBox,
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // veritabanindan gelecek
-                      Text(
-                        'User',
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      Text('Anaokul',
-                          style: Theme.of(context).textTheme.titleSmall),
-                    ],
-                  )
+                  ProfileDetailRow(
+                      title: LanguageItems.idTitle, value: '0000001'),
+                  ProfileDetailRow(
+                      title: LanguageItems.academicYear, value: '2023-2024'),
                 ],
               ),
-            ),
-            sizedBox,
-            //VeriTabaninindan gelecek
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ProfileDetailRow(
-                    title: LanguageItems.idTitle, value: '0000001'),
-                ProfileDetailRow(
-                    title: LanguageItems.academicYear, value: '2023-2024'),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ProfileDetailRow(
-                    title: LanguageItems.classTitle, value: 'Mezun'),
-                ProfileDetailRow(
-                    title: LanguageItems.schoolNo, value: '000126'),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ProfileDetailRow(
-                    title: LanguageItems.birthDayTitle, value: '1 Ocak 2018'),
-              ],
-            ),
-            sizedBox,
-            ProfileDetailColumn(
-              title: LanguageItems.mailTitle,
-              value: 'user@gmail.com',
-            ),
-            ProfileDetailColumn(
-              title: LanguageItems.fatherName,
-              value: 'User Father',
-            ),
-            ProfileDetailColumn(
-              title: LanguageItems.motherName,
-              value: 'User Mother',
-            ),
-            ProfileDetailColumn(
-              title: LanguageItems.parentNo,
-              value: '+90555-555-5555',
-            ),
-          ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ProfileDetailRow(
+                      title: LanguageItems.classTitle, value: 'Mezun'),
+                  ProfileDetailRow(
+                      title: LanguageItems.schoolNo, value: '000126'),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ProfileDetailRow(
+                      title: LanguageItems.birthDayTitle, value: '1 Ocak 2018'),
+                ],
+              ),
+              sizedBox,
+              ProfileDetailColumn(
+                title: LanguageItems.mailTitle,
+                value: 'user@gmail.com',
+              ),
+              ProfileDetailColumn(
+                title: LanguageItems.fatherName,
+                value: 'User Father',
+              ),
+              ProfileDetailColumn(
+                title: LanguageItems.motherName,
+                value: 'User Mother',
+              ),
+              ProfileDetailColumn(
+                title: LanguageItems.parentNo,
+                value: '+90555-555-5555',
+              ),
+            ],
+          ),
         ),
       ),
     );
