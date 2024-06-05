@@ -41,46 +41,47 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyB_Z9CHtsCQZBcmEz--PQaCP-66xAxJmO8',
-    appId: '1:226891754811:web:63fcfb4c6456439a435b1e',
-    messagingSenderId: '226891754811',
-    projectId: 'deneme1453-3c33e',
-    authDomain: 'deneme1453-3c33e.firebaseapp.com',
-    storageBucket: 'deneme1453-3c33e.appspot.com',
+    apiKey: 'AIzaSyB0pvW8cYzazyqeWS9TDqXrBWBSX9h9VL4',
+    appId: '1:205512445967:web:2488e5c6bfd45fa7e7d37a',
+    messagingSenderId: '205512445967',
+    projectId: 'wapdeneme-8e545',
+    authDomain: 'wapdeneme-8e545.firebaseapp.com',
+    storageBucket: 'wapdeneme-8e545.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCLYlyBPMuHKv1yj23I2n61p8iIQ6cgkig',
-    appId: '1:226891754811:android:64915de741da3986435b1e',
-    messagingSenderId: '226891754811',
-    projectId: 'deneme1453-3c33e',
-    storageBucket: 'deneme1453-3c33e.appspot.com',
+    apiKey: 'AIzaSyCxaZP20IpfbPONY3iYTyJNz5eH85F5ekQ',
+    appId: '1:205512445967:android:fb16667f30ebcb84e7d37a',
+    messagingSenderId: '205512445967',
+    projectId: 'wapdeneme-8e545',
+    storageBucket: 'wapdeneme-8e545.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAbQ74nGfMEkMWFUpF53BrCJXNmdT-94Zw',
-    appId: '1:226891754811:ios:668769a7bd963bfb435b1e',
-    messagingSenderId: '226891754811',
-    projectId: 'deneme1453-3c33e',
-    storageBucket: 'deneme1453-3c33e.appspot.com',
+    apiKey: 'AIzaSyAw7H4jq3qhgHJwUtUU4sWIlTpatVkJgus',
+    appId: '1:205512445967:ios:1802d244f5e9f9e9e7d37a',
+    messagingSenderId: '205512445967',
+    projectId: 'wapdeneme-8e545',
+    storageBucket: 'wapdeneme-8e545.appspot.com',
     iosBundleId: 'com.example.flutterApplication1',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAbQ74nGfMEkMWFUpF53BrCJXNmdT-94Zw',
-    appId: '1:226891754811:ios:668769a7bd963bfb435b1e',
-    messagingSenderId: '226891754811',
-    projectId: 'deneme1453-3c33e',
-    storageBucket: 'deneme1453-3c33e.appspot.com',
+    apiKey: 'AIzaSyAw7H4jq3qhgHJwUtUU4sWIlTpatVkJgus',
+    appId: '1:205512445967:ios:1802d244f5e9f9e9e7d37a',
+    messagingSenderId: '205512445967',
+    projectId: 'wapdeneme-8e545',
+    storageBucket: 'wapdeneme-8e545.appspot.com',
     iosBundleId: 'com.example.flutterApplication1',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyB_Z9CHtsCQZBcmEz--PQaCP-66xAxJmO8',
-    appId: '1:226891754811:web:56a3f2a478ed084a435b1e',
-    messagingSenderId: '226891754811',
-    projectId: 'deneme1453-3c33e',
-    authDomain: 'deneme1453-3c33e.firebaseapp.com',
-    storageBucket: 'deneme1453-3c33e.appspot.com',
+    apiKey: 'AIzaSyB0pvW8cYzazyqeWS9TDqXrBWBSX9h9VL4',
+    appId: '1:205512445967:web:e879c235ffa71bbee7d37a',
+    messagingSenderId: '205512445967',
+    projectId: 'wapdeneme-8e545',
+    authDomain: 'wapdeneme-8e545.firebaseapp.com',
+    storageBucket: 'wapdeneme-8e545.appspot.com',
   );
+
 }

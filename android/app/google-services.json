@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "226891754811",
-    "project_id": "deneme1453-3c33e",
-    "storage_bucket": "deneme1453-3c33e.appspot.com"
+    "project_number": "205512445967",
+    "project_id": "wapdeneme-8e545",
+    "storage_bucket": "wapdeneme-8e545.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:226891754811:android:64915de741da3986435b1e",
+        "mobilesdk_app_id": "1:205512445967:android:fb16667f30ebcb84e7d37a",
         "android_client_info": {
           "package_name": "com.example.flutter_application_1"
         }
@@ -15,7 +15,26 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCLYlyBPMuHKv1yj23I2n61p8iIQ6cgkig"
+          "current_key": "AIzaSyCxaZP20IpfbPONY3iYTyJNz5eH85F5ekQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205512445967:android:fad0db868b0812ffe7d37a",
+        "android_client_info": {
+          "package_name": "com.example.wapdeneme"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxaZP20IpfbPONY3iYTyJNz5eH85F5ekQ"
         }
       ],
       "services": {

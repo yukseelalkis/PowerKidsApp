@@ -51,7 +51,7 @@ class ChatHomeScreen extends StatelessWidget {
   Widget _buildUserListItem(
       Map<String, dynamic> userData, BuildContext context) {
     // display  all users  expect current user
-    if (userData["email"] != _authServices.getCurrentUser()!.email) {
+    if (userData["email"] != _authServices.getCurrentUser()?.email) {
       return UserTile(
         onTap: () {
           // TIKLAYINCA KONUSMAYA GITMESI LAIZM

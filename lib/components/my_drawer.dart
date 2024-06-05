@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/splash_screen/splash_screen.dart';
 import 'package:flutter_application_1/services/auth/auth_services.dart';
+import 'package:get/get.dart';
 
 class MyDrawe extends StatelessWidget {
   const MyDrawe({super.key});
 
-  void logout() {
+  void logout(BuildContext context) {
     final authServices = AuthServices();
-    authServices.signOuth();
+    //authServices.signOuth();
+   Navigator.popUntil(context, (Route<dynamic> route) {
+  return route.settings.name == 'LoginScreen';
+});
   }
 
   @override
@@ -46,9 +50,10 @@ class MyDrawe extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 25),
             child: ListTile(
-                title: const Text("L O G O U T"),
-                leading: const Icon(Icons.logout_outlined),
-                onTap: logout),
+              title: const Text("L O G O U T"),
+              leading: const Icon(Icons.logout_outlined),
+              onTap: () => logout(context),
+            ),
           ),
         ],
       ),

@@ -15,24 +15,9 @@ late bool _passwordVisible;
 
 class LoginScreen extends StatefulWidget {
   static String routeName = 'LoginScreen';
-  final TextEditingController _mailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+
   final void Function()? onTap;
   LoginScreen({this.onTap});
-
-  void login(BuildContext context) async {
-    final authServices = AuthServices();
-    try {
-      await authServices.signInWithEmailPassword(
-          _mailController.text, _passwordController.text);
-    } catch (e) {
-      showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-                title: Text(e.toString()),
-              ));
-    }
-  }
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -41,6 +26,16 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   late bool _passwordVisible;
+
+  final TextEditingController _mailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  Future<void >login(BuildContext context) async {
+    final authServices = AuthServices();
+    try {
+      await authServices.signInWithEmailPassword(
+          _mailController.text, _passwordController.text);
+    } catch (e) {}
+  }
 
   @override
   void initState() {
@@ -74,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       MyTextField(
                         hintText: "E-mail",
                         obscureText: false,
-                        controller: widget._mailController,
+                        controller: _mailController,
                       ),
                       SizedBox(
                         height: ProjectSize().login2xSizedBoxHeigth,
@@ -82,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       MyTextField(
                         hintText: "Password",
                         obscureText: true,
-                        controller: widget._passwordController,
+                        controller: _passwordController,
                       ),
                       SizedBox(
                         height: ProjectSize().login2xSizedBoxHeigth,
@@ -104,8 +99,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: () {},
                       ),
                       DefaultButton(
-                        onPress: () {
+                        onPress: () async {
                           if (_formKey.currentState!.validate()) {
+                            await login(context);
                             Navigator.pushNamedAndRemoveUntil(context,
                                 HomeScreen.routeName, (route) => false);
                           }
