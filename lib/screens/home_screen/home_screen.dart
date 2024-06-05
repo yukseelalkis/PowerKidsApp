@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/contants.dart';
 import 'package:flutter_application_1/language/laguage.dart';
 import 'package:flutter_application_1/routes.dart';
 import 'package:flutter_application_1/screens/activity_screen/activity_screen.dart';
+import 'package:flutter_application_1/screens/chat_home/chat_home.screen.dart';
 import 'package:flutter_application_1/screens/daily_flow_screen/daily_flow_screen.dart';
 import 'package:flutter_application_1/screens/data_sheet_screen/data_sheet_screen.dart';
 import 'package:flutter_application_1/screens/fee_screen/fee_screen.dart';
@@ -43,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         navKey: inspectionNavKey,
       ),
       NavModel(
-        page: const MessageScreen(),
+        page: ChatHomeScreen(),
         navKey: messageNavKey,
       ),
       NavModel(

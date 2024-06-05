@@ -4,15 +4,35 @@ TELFON NUMARASI E MAIL OLARAK AYARLADIK ONU SADECE TELEFON OLARAK DEGISTIRMEM LA
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/components/custom_button.dart';
+import 'package:flutter_application_1/components/my_textField.dart';
 import 'package:flutter_application_1/contants.dart';
 import 'package:flutter_application_1/language/laguage.dart';
 import 'package:flutter_application_1/screens/home_screen/home_screen.dart';
 import 'package:flutter_application_1/screens/login_screen/widget/login_widget.dart';
+import 'package:flutter_application_1/services/auth/auth_services.dart';
 
 late bool _passwordVisible;
 
 class LoginScreen extends StatefulWidget {
   static String routeName = 'LoginScreen';
+  final TextEditingController _mailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final void Function()? onTap;
+  LoginScreen({this.onTap});
+
+  void login(BuildContext context) async {
+    final authServices = AuthServices();
+    try {
+      await authServices.signInWithEmailPassword(
+          _mailController.text, _passwordController.text);
+    } catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text(e.toString()),
+              ));
+    }
+  }
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -20,8 +40,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
+  late bool _passwordVisible;
 
-  //changes current state
   @override
   void initState() {
     super.initState();
@@ -31,14 +51,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      //when user taps anywhere on the screen, keyboard hides
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         body: SingleChildScrollView(
           child: Column(
             children: [
               Container(
-                  //width: 100.w,
                   width: ProjectSize().projecContainerWidth,
                   height: ProjectSize().projectImageContainerHeight,
                   decoration:
@@ -53,11 +71,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: ProjectSize().login2xSizedBoxHeigth,
                       ),
-                      buildEmailField(),
+                      MyTextField(
+                        hintText: "E-mail",
+                        obscureText: false,
+                        controller: widget._mailController,
+                      ),
                       SizedBox(
                         height: ProjectSize().login2xSizedBoxHeigth,
                       ),
-                      buildPasswordField(),
+                      MyTextField(
+                        hintText: "Password",
+                        obscureText: true,
+                        controller: widget._passwordController,
+                      ),
                       SizedBox(
                         height: ProjectSize().login2xSizedBoxHeigth,
                       ),
@@ -116,59 +142,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
-    );
-  }
-
-  TextFormField buildEmailField() {
-    return TextFormField(
-      textAlign: TextAlign.start,
-      keyboardType: TextInputType.emailAddress,
-      style: kInputTextStyle,
-      decoration: InputDecoration(
-        labelText: LanguageItems.phoneLabelText,
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-      ),
-      validator: (value) {
-        RegExp regExp = new RegExp(emailPattern);
-        if (value == null || value.isEmpty) {
-          return LanguageItems.MailPls;
-        } else if (!regExp.hasMatch(value)) {
-          return LanguageItems.errorMail;
-        }
-        return null;
-      },
-    );
-  }
-
-  TextFormField buildPasswordField() {
-    return TextFormField(
-      obscureText: _passwordVisible,
-      textAlign: TextAlign.start,
-      keyboardType: TextInputType.visiblePassword,
-      style: kInputTextStyle,
-      decoration: InputDecoration(
-        labelText: LanguageItems.password,
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: IconButton(
-          onPressed: () {
-            setState(() {
-              _passwordVisible = !_passwordVisible;
-            });
-          },
-          icon: Icon(
-            _passwordVisible
-                ? Icons.visibility_off_outlined
-                : Icons.visibility_off_outlined,
-          ),
-          iconSize: kDefaultPadding,
-        ),
-      ),
-      validator: (value) {
-        if (value!.length < 5) {
-          return LanguageItems.errorPassword;
-        }
-        return null;
-      },
     );
   }
 }
